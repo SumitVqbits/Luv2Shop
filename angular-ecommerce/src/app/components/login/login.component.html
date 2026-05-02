@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+
+      <div class="card shadow">
+        <div class="card-body p-4">
+          <h3 class="card-title text-center mb-4">Login</h3>
+
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+              <label class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="username"
+                placeholder="Enter your username"
+              />
+              <div
+                *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched"
+                class="text-danger small mt-1">
+                Username is required.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Enter your password"
+              />
+              <div
+                *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                class="text-danger small mt-1">
+                Password must be at least 6 characters.
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              [disabled]="loginForm.invalid || isLoading">
+              {{ isLoading ? 'Logging in...' : 'Login' }}
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

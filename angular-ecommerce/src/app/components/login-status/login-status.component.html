@@ -1,0 +1,10 @@
+<div class="login-status-header">
+    <span class="login-status-user-info">Welcome, {{ userName }}</span>
+    <button (click)="logout()" class="au-btn-submit">
+        Logout
+    </button>
+</div>
+
+<ng-template #loggedOut>
+    <a routerLink="/login" class="security-btn">Login</a>
+</ng-template>

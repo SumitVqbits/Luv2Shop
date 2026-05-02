@@ -1,0 +1,27 @@
+.product-box {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.product-box img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+}
+
+.product-box h1 {
+  font-size: 14px;
+  margin-top: 10px;
+  flex-grow: 1;
+}
+
+.product-box .price {
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 8px;
+}
