@@ -2,7 +2,6 @@ package com.luv2code.ecommerce.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -17,12 +16,10 @@ public class MyAppConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-
-        //Set up cors mapping
-        registry.addMapping(basePath + "/**").allowedOrigins(theAllowedOrigins);
-        
+        registry.addMapping(basePath + "/**")
+                .allowedOrigins(theAllowedOrigins)
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD")
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
-
-
-    
 }
